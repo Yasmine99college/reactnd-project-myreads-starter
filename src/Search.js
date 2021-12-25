@@ -81,9 +81,13 @@ class Search extends Component {
                                 return (
                                     <li key={BooksSearchHist.id}>
                                         <Books
-                                            bookList={BooksSearchHist}
+                                            book={BooksSearchHist}
                                             ShelvesUpdate={this.props.ShelvesUpdate}
                                             shelfNow={noneshelf}
+                                            
+                                            // book={this.props.books}
+                                            
+
 
                                         />
                                     </li>
