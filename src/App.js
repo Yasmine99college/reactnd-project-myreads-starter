@@ -17,14 +17,19 @@ class BooksApp extends React.Component {
      */
     // showSearchPage: false
   }
-  componentDidMount() {
-    BooksAPI.getAll().then((books) => { this.setState({ books }) })
+   async componentDidMount() {
+     const books = await BooksAPI.getAll()
+      //  .then((books) => {
+      this.setState({
+        books, isLoading: false,
+      })
+    //  })
 
 
   }
   ShelvesUpdate = (books, shelf) => {
-    BooksAPI.update(books, shelf);
-    BooksAPI.getAll().then((books) => { this.setState({ books }) })
+    BooksAPI.update(books, shelf).then(BooksAPI.getAll().then((books) => { this.setState({ books }) })
+);
 
 
   }
